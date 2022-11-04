@@ -61,7 +61,7 @@ body {
       color: #000; }
   .login-card-log .forgot-password-link-log {
     font-size: 14px;
-    color: #fa4b3c;
+    color: #b7b7b7;
     margin-bottom: 10px; }
   .login-card-footer-text-log {
     font-size: 16px;
@@ -70,8 +70,5 @@ body {
     @media (max-width: 767px) {
       .login-card-footer-text-log {
         margin-bottom: 20px; } }
-  .login-card-footer-nav-log a {
-    font-size: 14px;
-    color: #919aa3; }
 
 /*# sourceMappingURL=login.css.map */

@@ -74,8 +74,8 @@
             </div>
         </div> --}}
 
-        <div class="container d-flex">
-            <div class="col-lg-12 col-md-6">
+        <div class="container d-flex ">
+            <div class="col-lg-12 col-md-12 col-sm-12 ml-auto mr-auto">
                 <form class="form" method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="card login-card-log">
@@ -92,19 +92,29 @@
                               <form class="form" method="POST" action="{{ route('login') }}">
                                 @csrf
                                   <div class="form-group">
-                                    <label for="email" class="sr-only">Email</label>
-                                    <input type="email" name="email" id="email" class="form-control-log" placeholder="Email address">
+                                    <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" type="email" name="email" value="{{ old('email') }}" required autofocus>
+                                
+                                    @if ($errors->has('email'))
+                                        <span class="invalid-feedback" style="display: block;" role="alert">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
                                   </div>
+
                                   <div class="form-group mb-4">
-                                    <label for="password" class="sr-only">Password</label>
-                                    <input type="password" name="password" id="password" class="form-control-log" placeholder="Password">
+                                    <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('Password') }}" type="password" required>
+                                
+                                    @if ($errors->has('password'))
+                                        <span class="invalid-feedback" style="display: block;" role="alert">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
                                   </div>
+
                                   <button type="submit" class="btn btn-block login-btn-log mb-4">{{ __('Sign in') }}</button>
                                 </form>
-                                
-                                <a href="#!" class="forgot-password-link-log">Forgot password?</a>
-                                <p class="login-card-footer-text-log">Don't have an account? <a href="#!" class="text-reset">Register here</a></p>
-                
+                                <a href="{{ route('password.request') }}" class="forgot-password-link-log">Forgot password?</a>
+                                <p class="login-card-footer-text-log">Don't have an account? <a href="{{ route('register') }}" class="text-reset">Register here</a></p>
                             </div>
                           </div>
                         </div>
