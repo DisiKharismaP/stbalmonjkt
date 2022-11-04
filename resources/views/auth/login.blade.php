@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="content">
-        <div class="container">
+        {{-- <div class="container">
             <div class="col-lg-4 col-md-6 ml-auto mr-auto">
                 <form class="form" method="POST" action="{{ route('login') }}">
                     @csrf
@@ -72,7 +72,47 @@
                     {{ __('Create Account') }}
                 </a>
             </div>
+        </div> --}}
+
+        <div class="container d-flex">
+            <div class="col-lg-12 col-md-6">
+                <form class="form" method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <div class="card login-card-log">
+                        <div class="row no-gutters">
+                          <div class="col-md-5">
+                            <img src="paper/img/login.jpg" alt="login" class="login-card-img-log">
+                          </div>
+                          <div class="col-md-7">
+                            <div class="card-body-log">
+                              <div class="brand-wrapper-log">
+                                <img src="paper/img/logo.svg" alt="logo" class="logo-log">
+                              </div>
+                              <p class="login-card-description-log">Sign into your account</p>
+                              <form class="form" method="POST" action="{{ route('login') }}">
+                                @csrf
+                                  <div class="form-group">
+                                    <label for="email" class="sr-only">Email</label>
+                                    <input type="email" name="email" id="email" class="form-control-log" placeholder="Email address">
+                                  </div>
+                                  <div class="form-group mb-4">
+                                    <label for="password" class="sr-only">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control-log" placeholder="Password">
+                                  </div>
+                                  <button type="submit" class="btn btn-block login-btn-log mb-4">{{ __('Sign in') }}</button>
+                                </form>
+                                
+                                <a href="#!" class="forgot-password-link-log">Forgot password?</a>
+                                <p class="login-card-footer-text-log">Don't have an account? <a href="#!" class="text-reset">Register here</a></p>
+                
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </form>
+            </div>
         </div>
+
     </div>
 @endsection
 
